@@ -6,16 +6,17 @@
 /*   By: yaqliu <yaqliu@student.42barcelona.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 12:07:13 by yaqliu            #+#    #+#             */
-/*   Updated: 2026/02/11 19:23:49 by yaqliu           ###   ########.fr       */
+/*   Updated: 2026/02/11 22:12:42 by yaqliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	ft_create_stack(char **content, int size, t_stack **stack)
+void	ft_create_stack(char **content, int size, t_stack **stack, int *index)
 {
 	t_stack	*elem;
 	int		i;
+	int		pos;
 	long	val;
 
 	*stack = NULL;
@@ -23,13 +24,14 @@ void	ft_create_stack(char **content, int size, t_stack **stack)
 	while (i < size)
 	{
 		val = ft_atol(content[i]);
-		elem = lstnew((int)val);
+		pos = get_index(index, val, size);
+		elem = lstnew((int)val, pos);
 		lstadd_back(stack, elem);
 		i++;
 	}
 }
 
-t_stack	*lstnew(int content)
+t_stack	*lstnew(int content, int pos)
 {
 	t_stack	*new;
 
@@ -37,6 +39,7 @@ t_stack	*lstnew(int content)
 	if (!new)
 		return (NULL);
 	new -> value = content;
+	new -> r_pos = pos;
 	new -> next = NULL;
 	return (new);
 }

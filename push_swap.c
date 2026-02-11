@@ -6,7 +6,7 @@
 /*   By: yaqliu <yaqliu@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 12:32:34 by yaqliu            #+#    #+#             */
-/*   Updated: 2026/02/11 19:25:23 by yaqliu           ###   ########.fr       */
+/*   Updated: 2026/02/11 22:14:24 by yaqliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	free_split(char **str)
 	free(str);
 }
 
-void	two_args(t_stack *stack_a, t_stack *stack_b, char *arg)
+void	two_args(t_stack *stack_a, t_stack *stack_b, char *arg, int *index)
 {
 	char	**input;
 	int		word_num;
@@ -37,9 +37,11 @@ void	two_args(t_stack *stack_a, t_stack *stack_b, char *arg)
 	if (ft_all_num(word_num, input, 0)
 		&& ft_unique(word_num, input, 0))
 	{
-		ft_create_stack(input, word_num, &stack_a);
+		index = ft_create_index(input, word_num, 0);
+		ft_create_stack(input, word_num, &stack_a, index);
 		solve(&stack_a, &stack_b);
 		ft_clean_all(&stack_a, &stack_b);
+		free(index);
 	}
 	free_split(input);
 }
@@ -48,17 +50,20 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	int		*index;
 
 	if (argc < 2)
 		return (0);
 	stack_b = NULL;
 	stack_a = NULL;
 	if (argc == 2)
-		two_args(stack_a, stack_b, argv[1]);
+		two_args(stack_a, stack_b, argv[1], index);
 	else if (ft_all_num(argc, argv, 1) && ft_unique(argc, argv, 1))
 	{
-		ft_create_stack(++argv, argc - 1, &stack_a);
+		index = ft_create_index(argv, argc, 1);
+		ft_create_stack(++argv, argc - 1, &stack_a, index);
 		solve(&stack_a, &stack_b);
 		ft_clean_all(&stack_a, &stack_b);
+		free(index);
 	}
 }
