@@ -1,0 +1,91 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   header.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yaqliu <yaqliu@student.42barcelona.co      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/02 11:22:37 by yaqliu            #+#    #+#             */
+/*   Updated: 2026/02/11 19:24:00 by yaqliu           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef HEADER_H
+# define HEADER_H
+
+# include <unistd.h>
+# include <stdlib.h>
+# include <fcntl.h>
+
+typedef struct s_stack
+{
+	int	value;
+	struct s_stack	*next;
+}		t_stack;
+
+// INPUT
+int		is_valid(char *num);
+int		is_repeated(char **argv, int pos, int argc);
+int		ft_all_num(int argc, char **argv, int i);
+int		ft_unique(int argc, char **argv, int i);
+
+// UTILS
+size_t	ft_strlen(char *str);
+int		ft_isnum(char *str);
+int		is_space(char c);
+int		ft_strcmp(char *str1, char *str2);
+long	ft_atol(char *num);
+char	*ft_substr(char *str, int ini, int size);
+
+// SPLIT
+int		count_words(char *str);
+int		word_len(char *str, int ini);
+char	**ft_split(char *str);
+void	ft_clean_input(char **str, int size);
+void	ft_fill_words(char **res, char *str, int n);
+
+// LISTS
+int		stack_size(t_stack *stack);
+int		get_pivot(t_stack *stack, int range);
+int		get_min(t_stack *stack);
+t_stack	*lstnew(int content);
+t_stack	*lstlast(t_stack *stack);
+void	ft_create_stack(char **content, int size, t_stack **stack);
+void	lstadd_back(t_stack **stack, t_stack *elem);
+void	lstswap(t_stack **stack);
+void	ft_clear(t_stack **stack);
+void	ft_clean_all(t_stack **a, t_stack **b);
+
+// MOVEMENTS
+void	sa(t_stack **a);
+void	ra(t_stack **a);
+void	rra(t_stack **a);
+void	sb(t_stack **b);
+void	rb(t_stack **b);
+void	rrb(t_stack **b);
+void	ss(t_stack **a, t_stack **b);
+void	pa(t_stack **a, t_stack **b);
+void	pb(t_stack **a, t_stack **b);
+void	rr(t_stack **a, t_stack **b);
+void	rrr(t_stack **a, t_stack **b);
+void	rotate(t_stack **s);
+void	push(t_stack **dst, t_stack **src);
+void	rrotate(t_stack **stack);
+
+//quicksort array
+void	ft_swap(int *a, int *b);
+int		partition(int *arr, int ini, int fi);
+void	quick_sort_array(int *arr, int ini, int fi);
+
+//algorithm
+void	sort_two_elem(t_stack **stack);
+void	sort_three_elem(t_stack **stack);
+void	sort_four_elem(t_stack **a, t_stack **b);
+void	sort_five_elem(t_stack **a, t_stack **b);
+void	quick_sort_a(t_stack **a, t_stack **b, int size, int pushed);
+void	quick_sort_b(t_stack **a, t_stack **b, int size, int pushed);
+void	restore_stack_a(t_stack **a, int size);
+void	restore_stack_b(t_stack **b, int size);
+void	solve(t_stack **a, t_stack **b);
+
+#endif
