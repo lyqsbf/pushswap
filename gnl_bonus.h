@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_bonus.h                                    :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaqliu <yaqliu@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/12 14:42:40 by yaqliu            #+#    #+#             */
-/*   Updated: 2026/02/12 15:59:53 by yaqliu           ###   ########.fr       */
+/*   Created: 2025/12/06 20:46:18 by yaqliu            #+#    #+#             */
+/*   Updated: 2025/12/07 17:56:40 by yaqliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_BONUS_H
-# define CHECKER_BONUS_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1024
+# endif
 
 # include <unistd.h>
-# include <stdlib.h>
 # include <fcntl.h>
-# include "header.h"
-# include "gnl_bonus.h"
+# include <stdlib.h>
 
-typedef struct s_stack
-{
-	struct s_stack	*next;
-	int				value;
-	int				r_pos;
-}	t_stack;
-
-int		ft_strcmp(char *str1, char *str2);
-void	ss(t_stack **a, t_stack **b);
-void	rr(t_stack **a, t_stack **b);
-void	rrr(t_stack **a, t_stack **b);
+char	*get_next_line(int fd);
+char	*ft_read_content(int fd, char *buffer, char *content);
+char	*ft_get_line(char *content);
+char	*ft_strdup(char *str, size_t start, size_t size);
+char	*ft_strjoin(char const *s1, char const *s2);
+size_t	ft_strlen(char const *s);
+size_t	ft_strchr(char const *str, char const c);
 
 #endif

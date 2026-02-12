@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_bonus.h                                    :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaqliu <yaqliu@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/12 14:42:40 by yaqliu            #+#    #+#             */
-/*   Updated: 2026/02/12 15:59:53 by yaqliu           ###   ########.fr       */
+/*   Created: 2026/02/12 15:52:18 by yaqliu            #+#    #+#             */
+/*   Updated: 2026/02/12 15:53:52 by yaqliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_BONUS_H
-# define CHECKER_BONUS_H
+#include "checker_bonus.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include "header.h"
-# include "gnl_bonus.h"
-
-typedef struct s_stack
+int	ft_strcmp(char *str1, char *str2)
 {
-	struct s_stack	*next;
-	int				value;
-	int				r_pos;
-}	t_stack;
+	int	i;
 
-int		ft_strcmp(char *str1, char *str2);
-void	ss(t_stack **a, t_stack **b);
-void	rr(t_stack **a, t_stack **b);
-void	rrr(t_stack **a, t_stack **b);
-
-#endif
+	i = 0;
+	while (str1[i] && str2[i] && str1[i] == str2[i])
+		i++;
+	return (str1[i] - str2[i]);
+}
