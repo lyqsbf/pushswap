@@ -6,7 +6,7 @@
 /*   By: yaqliu <yaqliu@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 22:47:35 by yaqliu            #+#    #+#             */
-/*   Updated: 2026/02/11 23:12:50 by yaqliu           ###   ########.fr       */
+/*   Updated: 2026/02/12 00:54:36 by yaqliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,16 @@ void	ft_clean_all(t_stack **a, t_stack **b)
 
 int	get_position(t_stack *s, int val)
 {
-	int	i;
+	t_stack	*tmp;
+	int		i;
 
 	i = 0;
-	while (*s)
+	tmp = s;
+	while (tmp)
 	{
-		if ((*s)->r_pos == val)
+		if (tmp->r_pos == val)
 			return (i);
-		(*s) = (*s)->next;
+		tmp = tmp->next;
 		i++;
 	}
 	return (-1);

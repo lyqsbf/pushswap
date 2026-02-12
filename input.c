@@ -6,7 +6,7 @@
 /*   By: yaqliu <yaqliu@student.42barcelona.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 11:09:36 by yaqliu            #+#    #+#             */
-/*   Updated: 2026/02/11 19:39:14 by yaqliu           ###   ########.fr       */
+/*   Updated: 2026/02/12 00:51:48 by yaqliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,16 @@ int	is_valid(char *num)
 
 int	is_repeated(char **argv, int pos, int argc)
 {
-	int	i;
+	int		i;
+	long	num1;
+	long	num2;
 
+	num1 = ft_atol(argv[pos]);
 	i = pos + 1;
 	while (i < argc)
 	{
-		if (ft_strcmp(argv[i], argv[pos]) == 0)
+		num2 = ft_atol(argv[i]);
+		if (num1 == num2)
 			return (write(2, "ErrorREP\n", 9), 1);
 		i++;
 	}

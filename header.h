@@ -6,7 +6,7 @@
 /*   By: yaqliu <yaqliu@student.42barcelona.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 11:22:37 by yaqliu            #+#    #+#             */
-/*   Updated: 2026/02/11 23:15:37 by yaqliu           ###   ########.fr       */
+/*   Updated: 2026/02/12 01:07:14 by yaqliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void	ft_clean_input(char **str, int size);
 void	ft_fill_words(char **res, char *str, int n);
 
 // LISTS
+int		get_max_rank(t_stack *s);
+int		get_min(t_stack *a);
 int		get_position(t_stack *s, int value);
 int		stack_size(t_stack *stack);
 t_stack	*lstnew(int content, int index);
@@ -78,7 +80,7 @@ void	rrotate(t_stack **stack);
 //quicksort array
 void	ft_swap(int *a, int *b);
 int		partition(int *arr, int ini, int fi);
-void	quick_sort_array(int **arr, int ini, int fi);
+void	quick_sort_array(int *arr, int ini, int fi);
 
 //algorithm
 void	sort_two_elem(t_stack **stack);
@@ -87,6 +89,7 @@ void	sort_four_elem(t_stack **a, t_stack **b);
 void	sort_five_elem(t_stack **a, t_stack **b);
 void	sort_a(t_stack **a, t_stack **b, int chunk_size);
 void	restore_stack_a(t_stack **a, t_stack **b);
+void	small_cases(t_stack **a, t_stack **b, int size);
 void	solve(t_stack **a, t_stack **b);
 
 #endif
