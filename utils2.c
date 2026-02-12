@@ -40,9 +40,10 @@ int	*ft_create_index(char **input, int size, int i)
 
 	ini = i;
 	index = (int *)malloc((size - ini) * sizeof(int));
-	while (i < size)
+	i = 0;
+	while (i < size - ini)
 	{
-		index[i] = (int)ft_atol(input[i]);
+		index[i] = (int)ft_atol(input[ini + i]);
 		i++;
 	}
 	quick_sort_array(index, 0, (size - ini) - 1);
