@@ -12,19 +12,6 @@
 
 #include "header.h"
 
-void	free_split(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
-}
-
 void	two_args(t_stack **stack_a, t_stack **stack_b, char *arg)
 {
 	char	**input;
@@ -33,13 +20,10 @@ void	two_args(t_stack **stack_a, t_stack **stack_b, char *arg)
 
 	word_num = count_words(arg);
 	if (word_num == 0)
-	{
-		write(2, "Error\n", 6);
-		return ;
-	}
+		ft_error(NULL, NULL);
 	input = ft_split(arg);
 	if (!input)
-		return ;
+		ft_error(NULL, NULL);
 	if (ft_all_num(word_num, input, 0)
 		&& ft_unique(word_num, input, 0))
 	{
@@ -48,8 +32,11 @@ void	two_args(t_stack **stack_a, t_stack **stack_b, char *arg)
 		solve(stack_a, stack_b);
 		ft_clean_all(stack_a, stack_b);
 		free(index);
+		free(input);
+		return ;
 	}
 	free_split(input);
+	ft_error(NULL, NULL);
 }
 
 int	main(int argc, char **argv)
@@ -59,7 +46,7 @@ int	main(int argc, char **argv)
 	int		*index;
 
 	if (argc < 2)
-		return (0);
+		return (1);
 	stack_b = NULL;
 	stack_a = NULL;
 	index = NULL;
@@ -73,4 +60,6 @@ int	main(int argc, char **argv)
 		ft_clean_all(&stack_a, &stack_b);
 		free(index);
 	}
+	else
+		ft_error(NULL, NULL);
 }

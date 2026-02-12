@@ -19,12 +19,12 @@ int	is_valid(char *num)
 	long	number;
 
 	if (!ft_isnum(num) || ft_strlen(num) > 11)
-		return (write(2, "ErrorVAL\n", 9), 0);
+		return (0);
 	number = ft_atol(num);
 	upper_limit = 2147483647;
 	lower_limit = -2147483648;
 	if (number < lower_limit || number > upper_limit)
-		return (write(2, "ErrorLIM\n", 9), 0);
+		return (0);
 	return (1);
 }
 
@@ -40,7 +40,7 @@ int	is_repeated(char **argv, int pos, int argc)
 	{
 		num2 = ft_atol(argv[i]);
 		if (num1 == num2)
-			return (write(2, "ErrorREP\n", 9), 1);
+			return (1);
 		i++;
 	}
 	return (0);

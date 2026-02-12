@@ -48,8 +48,6 @@ void	restore_stack_a(t_stack **a, t_stack **b)
 		size_b = stack_size(*b);
 		max_value = get_max_rank(*b);
 		pos = get_position(*b, max_value);
-		if (pos == -1)
-			break ;
 		if (pos <= size_b / 2)
 		{
 			while ((*b)->r_pos != max_value)

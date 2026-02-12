@@ -35,11 +35,13 @@ size_t	ft_strlen(char *str);
 int		ft_isnum(char *str);
 int		is_space(char c);
 int		ft_strcmp(char *str1, char *str2);
-long	ft_atol(char *num);
-char	*ft_substr(char *str, int ini, int size);
 int		get_index(int *vector, int value, int size);
 int		*ft_create_index(char **input, int size, int i);
 int		ft_sqrt(int n);
+long	ft_atol(char *num);
+char	*ft_substr(char *str, int ini, int size);
+void	ft_error(t_stack **a, t_stack **b);
+void	free_split(char **str);
 
 // SPLIT
 int		count_words(char *str);
@@ -49,12 +51,12 @@ void	ft_clean_input(char **str, int size);
 void	ft_fill_words(char **res, char *str, int n);
 
 // LISTS
+t_stack	*lstnew(int content, int index);
+t_stack	*lstlast(t_stack *stack);
 int		get_max_rank(t_stack *s);
 int		get_min(t_stack *a);
 int		get_position(t_stack *s, int value);
 int		stack_size(t_stack *stack);
-t_stack	*lstnew(int content, int index);
-t_stack	*lstlast(t_stack *stack);
 void	ft_create_stack(char **content, int size, t_stack **stack, int *index);
 void	lstadd_back(t_stack **stack, t_stack *elem);
 void	lstswap(t_stack **stack);
@@ -73,13 +75,13 @@ void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **a, t_stack **b);
 void	rr(t_stack **a, t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
-void	rotate(t_stack **s);
 void	push(t_stack **dst, t_stack **src);
-void	rrotate(t_stack **stack);
+int		rotate(t_stack **s);
+int		rrotate(t_stack **stack);
 
 //quicksort array
-void	ft_swap(int *a, int *b);
 int		partition(int *arr, int ini, int fi);
+void	ft_swap(int *a, int *b);
 void	quick_sort_array(int *arr, int ini, int fi);
 
 //algorithm

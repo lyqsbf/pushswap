@@ -85,3 +85,26 @@ char	*ft_substr(char *str, int ini, int size)
 	substr[size] = '\0';
 	return (substr);
 }
+
+void	ft_error(t_stack **a, t_stack **b)
+{
+	if (a)
+		ft_clear(a);
+	if (b)
+		ft_clear(b);
+	write(2, "Error\n", 6);
+	exit(1);
+}
+
+void	free_split(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+}

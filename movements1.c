@@ -24,28 +24,29 @@ void	sb(t_stack **b)
 	write(1, "sb\n", 3);
 }
 
-void	rotate(t_stack **s)
+int	rotate(t_stack **s)
 {
 	t_stack	*first;
 	t_stack	*last;
 
 	if (!s || !(*s) || !(*s)->next)
-		return ;
+		return (0);
 	first = *s;
 	last = lstlast(*s);
 	*s = first->next;
 	last->next = first;
 	first->next = NULL;
+	return (1);
 }
 
 void	ra(t_stack **a)
 {
-	rotate(a);
-	write(1, "ra\n", 3);
+	if (rotate(a))
+		write(1, "ra\n", 3);
 }
 
 void	rb(t_stack **b)
 {
-	rotate(b);
-	write(1, "rb\n", 3);
+	if (rotate(b))
+		write(1, "rb\n", 3);
 }

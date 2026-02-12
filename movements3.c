@@ -12,13 +12,13 @@
 
 #include "header.h"
 
-void	rrotate(t_stack **stack)
+int	rrotate(t_stack **stack)
 {
 	t_stack	*last;
 	t_stack	*new_last;
 
 	if (!stack || !(*stack) || !(*stack)->next)
-		return ;
+		return (0);
 	last = *stack;
 	new_last = NULL;
 	while (last->next)
@@ -29,16 +29,17 @@ void	rrotate(t_stack **stack)
 	new_last->next = NULL;
 	last->next = *stack;
 	*stack = last;
+	return (1);
 }
 
 void	rra(t_stack **a)
 {
-	rrotate(a);
-	write(1, "rra\n", 4);
+	if (rrotate(a))
+		write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack **b)
 {
-	rrotate(b);
-	write(1, "rrb\n", 4);
+	if (rrotate(b))
+		write(1, "rrb\n", 4);
 }
