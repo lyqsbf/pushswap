@@ -1,45 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movements3.c                                       :+:      :+:    :+:   */
+/*   stack_rotate.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaqliu <yaqliu@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/08 23:22:53 by yaqliu            #+#    #+#             */
-/*   Updated: 2026/02/11 18:32:09 by yaqliu           ###   ########.fr       */
+/*   Created: 2026/02/07 14:57:37 by yaqliu            #+#    #+#             */
+/*   Updated: 2026/02/12 14:26:57 by yaqliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	rrotate(t_stack **stack)
+int	rotate(t_stack **s)
 {
+	t_stack	*first;
 	t_stack	*last;
-	t_stack	*new_last;
 
-	if (!stack || !(*stack) || !(*stack)->next)
+	if (!s || !(*s) || !(*s)->next)
 		return (0);
-	last = *stack;
-	new_last = NULL;
-	while (last->next)
-	{
-		new_last = last;
-		last = last->next;
-	}
-	new_last->next = NULL;
-	last->next = *stack;
-	*stack = last;
+	first = *s;
+	last = lstlast(*s);
+	*s = first->next;
+	last->next = first;
+	first->next = NULL;
 	return (1);
 }
 
-void	rra(t_stack **a)
+void	ra(t_stack **a)
 {
-	if (rrotate(a))
-		write(1, "rra\n", 4);
+	if (rotate(a))
+		write(1, "ra\n", 3);
 }
 
-void	rrb(t_stack **b)
+void	rb(t_stack **b)
 {
-	if (rrotate(b))
-		write(1, "rrb\n", 4);
+	if (rotate(b))
+		write(1, "rb\n", 3);
 }

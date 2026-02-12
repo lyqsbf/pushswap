@@ -36,14 +36,11 @@ int	ft_isnum(char *str)
 	return (0);
 }
 
-int	ft_strcmp(char *str1, char *str2)
+int	is_space(char c)
 {
-	int	i;
-
-	i = 0;
-	while (str1[i] && str1[i] == str2[i])
-		i++;
-	return (str1[i] - str2[i]);
+	if ((c >= 9 && c <= 13) || c == 32)
+		return (1);
+	return (0);
 }
 
 long	ft_atol(char *num)
@@ -84,27 +81,4 @@ char	*ft_substr(char *str, int ini, int size)
 	}
 	substr[size] = '\0';
 	return (substr);
-}
-
-void	ft_error(t_stack **a, t_stack **b)
-{
-	if (a)
-		ft_clear(a);
-	if (b)
-		ft_clear(b);
-	write(2, "Error\n", 6);
-	exit(1);
-}
-
-void	free_split(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
 }

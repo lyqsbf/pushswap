@@ -63,17 +63,3 @@ void	lstadd_back(t_stack **stack, t_stack *new)
 		last = last -> next;
 	last -> next = new;
 }
-
-void	lstswap(t_stack **stack)
-{
-	t_stack	*first;
-	t_stack	*second;
-
-	if (!stack || !*stack || !(*stack)->next)
-		return ;
-	first = *stack;
-	second = first -> next;
-	first -> next = second -> next;
-	second -> next = first;
-	*stack = second;
-}

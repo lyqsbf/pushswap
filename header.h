@@ -15,7 +15,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <fcntl.h>
 
 typedef struct s_stack
 {
@@ -34,7 +33,6 @@ int		ft_unique(int argc, char **argv, int i);
 size_t	ft_strlen(char *str);
 int		ft_isnum(char *str);
 int		is_space(char c);
-int		ft_strcmp(char *str1, char *str2);
 int		get_index(int *vector, int value, int size);
 int		*ft_create_index(char **input, int size, int i);
 int		ft_sqrt(int n);
@@ -70,11 +68,8 @@ void	rra(t_stack **a);
 void	sb(t_stack **b);
 void	rb(t_stack **b);
 void	rrb(t_stack **b);
-void	ss(t_stack **a, t_stack **b);
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **a, t_stack **b);
-void	rr(t_stack **a, t_stack **b);
-void	rrr(t_stack **a, t_stack **b);
 void	push(t_stack **dst, t_stack **src);
 int		rotate(t_stack **s);
 int		rrotate(t_stack **stack);

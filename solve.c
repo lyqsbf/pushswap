@@ -17,7 +17,7 @@ void	sort_a(t_stack **a, t_stack **b, int n)
 	int	chunk_size;
 	int	i;
 
-	chunk_size = 2 * ft_sqrt(n);
+	chunk_size = ft_sqrt(n) + 10;
 	i = 0;
 	while (*a)
 	{

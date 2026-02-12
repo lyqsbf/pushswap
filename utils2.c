@@ -12,11 +12,16 @@
 
 #include "header.h"
 
-int	is_space(char c)
+int	ft_sqrt(int n)
 {
-	if ((c >= 9 && c <= 13) || c == 32)
-		return (1);
-	return (0);
+	int	i;
+
+	if (n <= 0)
+		return (0);
+	i = 1;
+	while (i <= 46000 && (i * i) <= n)
+		i++;
+	return (i - 1);
 }
 
 int	get_index(int *vector, int value, int size)
@@ -33,31 +38,25 @@ int	get_index(int *vector, int value, int size)
 	return (-1);
 }
 
-int	*ft_create_index(char **input, int size, int i)
-{
-	int	*index;
-	int	ini;
-
-	ini = i;
-	index = (int *)malloc((size - ini) * sizeof(int));
-	i = 0;
-	while (i < size - ini)
-	{
-		index[i] = (int)ft_atol(input[ini + i]);
-		i++;
-	}
-	quick_sort_array(index, 0, (size - ini) - 1);
-	return (index);
-}
-
-int	ft_sqrt(int n)
+void	free_split(char **str)
 {
 	int	i;
 
-	if (n <= 0)
-		return (0);
-	i = 1;
-	while (i <= 46000 && (i * i) <= n)
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
 		i++;
-	return (i - 1);
+	}
+	free(str);
+}
+
+void	ft_error(t_stack **a, t_stack **b)
+{
+	if (a)
+		ft_clear(a);
+	if (b)
+		ft_clear(b);
+	write(2, "Error\n", 6);
+	exit(1);
 }

@@ -44,3 +44,20 @@ int	get_max_rank(t_stack *s)
 	}
 	return (max);
 }
+
+int	*ft_create_index(char **input, int size, int i)
+{
+	int	*index;
+	int	ini;
+
+	ini = i;
+	index = (int *)malloc((size - ini) * sizeof(int));
+	i = 0;
+	while (i < size - ini)
+	{
+		index[i] = (int)ft_atol(input[ini + i]);
+		i++;
+	}
+	quick_sort_array(index, 0, (size - ini) - 1);
+	return (index);
+}
