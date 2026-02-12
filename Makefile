@@ -32,10 +32,14 @@ COMMON_SRCS = input.c \
 		utils2.c
 
 SRCS = push_swap.c $(COMMON_SRCS)
-SRCS_BONUS = checker.c\
+SRCS_BONUS = checker_bonus.c\
 	gnl_bonus.c\
 	gnl_utils_bonus.c\
+	utils_bonus.c\
+	movements1_bonus.c\
+	movements2_bonus.c\
 	$(COMMON_SRCS)
+
 OBJS	= $(SRCS:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 INC	= header.h

@@ -12,18 +12,6 @@
 
 #include "gnl_bonus.h"
 
-size_t	ft_strlen(char const *str)
-{
-	size_t	n;
-
-	if (!str)
-		return (0);
-	n = 0;
-	while (str[n])
-		n++;
-	return (n);
-}
-
 size_t	ft_strchr(char const *str, char const c)
 {
 	size_t	i;
@@ -49,8 +37,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (!s2)
 		return (NULL);
-	a = ft_strlen(s1);
-	b = ft_strlen(s2);
+	a = ft_strlen((char *)s1);
+	b = ft_strlen((char *)s2);
 	res = (char *)malloc((a + b + 1) * sizeof(char));
 	if (!res)
 		return (NULL);

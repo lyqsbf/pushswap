@@ -12,29 +12,53 @@
 
 #include "checker_bonus.h"
 
-void	ft_act(t_stack **a, t_stack **b, char *str)
+int		ordered(t_stack **a, t_stack **b)
 {
-	if (ft_strcmp(str, "sa") == 0)
-		sa(a);
-	else if (ft_strcmp(str, "sb") == 0)
-		sb(b);
-	else if (ft_strcmp(str, "ss") == 0)
-		ss(a, b);
-	else if (ft_strcmp(str, "ra") == 0)
-		ra(b);
-	else if (ft_strcmp(str, "rb") == 0)
-		rb(b);
-	else if (ft_strcmp(str, "rr") == 0)
-		rr(a, b);
-	else if (ft_strcmp(str, "rra") == 0)
-		rra(b);
-	else if (ft_strcmp(str, "rrb") == 0)
-		rrb(b);
-	else if (ft_strcmp(str, "rrr") == 0)
-		rrr(a, b);
+	int		ant;
+	t_stack	*tmp;
+
+	if (stack_size(*b) > 0)
+		return (0);
+	ant = (*a)->r_pos;
+	tmp = (*a)->next;
+	while(tmp)
+	{
+		if (tmp->r_pos < ant)
+			return (0);
+		ant = tmp->r_pos;
+		tmp = tmp->next;
+	}
+	return (1);
+}
+
+void	ft_act(t_stack **a, t_stack **b, char *str, int *n)
+{
+	if (ft_strcmp(str, "sa\n") == 0)
+		return (sa_checker(a));
+	else if (ft_strcmp(str, "sb\n") == 0)
+		return (sb_checker(b));
+	else if (ft_strcmp(str, "pa\n") == 0)
+		return (pa_checker(a, b));
+	else if (ft_strcmp(str, "pb\n") == 0)
+		return (pb_checker(a, b));
+	else if (ft_strcmp(str, "ss\n") == 0)
+		return (ss_checker(a, b));
+	else if (ft_strcmp(str, "ra\n") == 0)
+		return (ra_checker(a));
+	else if (ft_strcmp(str, "rb\n") == 0)
+		return (rb_checker(b));
+	else if (ft_strcmp(str, "rr\n") == 0)
+		return(rr_checker(a, b));
+	else if (ft_strcmp(str, "rra\n") == 0)
+		return (rra_checker(a));
+	else if (ft_strcmp(str, "rrb\n") == 0)
+		return (rrb_checker(b));
+	else if (ft_strcmp(str, "rrr\n") == 0)
+		return (rrr_checker(a, b));
 	else
 	{
 		write(2, "Error\n", 6);
+		*n = 0;
 		return ;
 	}
 }
@@ -42,18 +66,28 @@ void	ft_act(t_stack **a, t_stack **b, char *str)
 void	check(t_stack **a, t_stack **b)
 {
 	char	*movement;
+	int		all_mov;
 
+	all_mov = 1;
 	movement = get_next_line(0);
 	while (movement)
 	{
-		ft_act(a, b, movement);
-		free(movement);
-		movement = get_next_line(0);
+		ft_act(a, b, movement, &all_mov);
+		if (all_mov)
+		{
+			free(movement);
+			movement = get_next_line(0);
+		}
+		else
+			movement = NULL;
 	}
-	if (ordered(a, b))
-		write(1, "OK\n", 3);
-	else
-		write(1, "KO\n", 3);
+	if (all_mov)
+	{
+		if (ordered(a, b))
+			write(1, "OK\n", 3);
+		else
+			write(1, "KO\n", 3);
+	}
 }
 
 void	two_args(t_stack **stack_a, t_stack **stack_b, char *arg)

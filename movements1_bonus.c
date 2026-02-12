@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_bonus.c                                      :+:      :+:    :+:   */
+/*   movments1_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaqliu <yaqliu@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/12 15:52:18 by yaqliu            #+#    #+#             */
-/*   Updated: 2026/02/12 15:53:52 by yaqliu           ###   ########.fr       */
+/*   Created: 2026/02/08 22:43:37 by yaqliu            #+#    #+#             */
+/*   Updated: 2026/02/12 16:54:35 by yaqliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 
-int	ft_strcmp(char *str1, char *str2)
+void	pa_checker(t_stack **a, t_stack **b)
 {
-	int	i;
-
-	i = 0;
-	while (str1[i] && str2[i] && str1[i] == str2[i])
-		i++;
-	return (str1[i] - str2[i]);
+	push(a, b);
 }
 
-void	ss_checker(t_stack **a, t_stack **b)
+void	pb_checker(t_stack **a, t_stack **b)
 {
-	sa_checker(a);
-	sb_checker(b);
+	push(b, a);
 }
 
-void	rr_checker(t_stack **a, t_stack **b)
+void	ra_checker(t_stack **a)
 {
-	ra_checker(a);
-	rb_checker(b);
+	rotate(a);
 }
 
-void	rrr_checker(t_stack **a, t_stack **b)
+void	rb_checker(t_stack **b)
 {
-	rra_checker(a);
-	rrb_checker(b);
+	rotate(b);
 }

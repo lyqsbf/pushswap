@@ -16,6 +16,8 @@ size_t	ft_strlen(char *str)
 {
 	size_t	i;
 
+	if (!str)
+		return (0);
 	i = 0;
 	while (str[i])
 		i++;
@@ -27,8 +29,12 @@ int	ft_isnum(char *str)
 	size_t	i;
 
 	i = 0;
+	if (!str || str[0] == '\0')
+		return (0);
 	if (str[0] == '-')
 		i = 1;
+	if (str[0] == '-' && str[1] == '\0')
+		return (0);
 	while (str[i] && str[i] >= '0' && str[i] <= '9')
 		i++;
 	if (i == ft_strlen(str))

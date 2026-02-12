@@ -19,16 +19,17 @@
 # include "header.h"
 # include "gnl_bonus.h"
 
-typedef struct s_stack
-{
-	struct s_stack	*next;
-	int				value;
-	int				r_pos;
-}	t_stack;
-
 int		ft_strcmp(char *str1, char *str2);
-void	ss(t_stack **a, t_stack **b);
-void	rr(t_stack **a, t_stack **b);
-void	rrr(t_stack **a, t_stack **b);
+void	sa_checker(t_stack **a);
+void	ra_checker(t_stack **a);
+void	rra_checker(t_stack **a);
+void	sb_checker(t_stack **b);
+void	rb_checker(t_stack **b);
+void	rrb_checker(t_stack **b);
+void	pa_checker(t_stack **a, t_stack **b);
+void	pb_checker(t_stack **a, t_stack **b);
+void	ss_checker(t_stack **a, t_stack **b);
+void	rr_checker(t_stack **a, t_stack **b);
+void	rrr_checker(t_stack **a, t_stack **b);
 
 #endif

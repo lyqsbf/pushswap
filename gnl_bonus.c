@@ -28,7 +28,7 @@ char	*ft_read_content(int fd, char *buffer, char *res)
 		res = ft_strjoin(res, buffer);
 		free(tmp);
 		if (!res)
-			return (free(tmp), tmp = NULL, NULL);
+			return (NULL);
 	}
 	return (res);
 }

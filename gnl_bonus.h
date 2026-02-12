@@ -20,13 +20,13 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
+# include "header.h"
 
 char	*get_next_line(int fd);
 char	*ft_read_content(int fd, char *buffer, char *content);
 char	*ft_get_line(char *content);
 char	*ft_strdup(char *str, size_t start, size_t size);
 char	*ft_strjoin(char const *s1, char const *s2);
-size_t	ft_strlen(char const *s);
 size_t	ft_strchr(char const *str, char const c);
 
 #endif
