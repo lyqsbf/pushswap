@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "gnl_bonus.h"
 
 char	*ft_read_content(int fd, char *buffer, char *res)
 {

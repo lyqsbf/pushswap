@@ -1,16 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaqliu <yaqliu@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 14:45:16 by yaqliu            #+#    #+#             */
-/*   Updated: 2026/02/12 14:45:18 by yaqliu           ###   ########.fr       */
+/*   Updated: 2026/02/12 16:05:22 by yaqliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
+
+void	ft_act(t_stack **a, t_stack **b, char *str)
+{
+	if (ft_strcmp(str, "sa") == 0)
+		sa(a);
+	else if (ft_strcmp(str, "sb") == 0)
+		sb(b);
+	else if (ft_strcmp(str, "ss") == 0)
+		ss(a, b);
+	else if (ft_strcmp(str, "ra") == 0)
+		ra(b);
+	else if (ft_strcmp(str, "rb") == 0)
+		rb(b);
+	else if (ft_strcmp(str, "rr") == 0)
+		rr(a, b);
+	else if (ft_strcmp(str, "rra") == 0)
+		rra(b);
+	else if (ft_strcmp(str, "rrb") == 0)
+		rrb(b);
+	else if (ft_strcmp(str, "rrr") == 0)
+		rrr(a, b);
+	else
+	{
+		write(2, "Error\n", 6);
+		return ;
+	}
+}
+
+void	check(t_stack **a, t_stack **b)
+{
+	char	*movement;
+
+	movement = get_next_line(0);
+	while (movement)
+	{
+		ft_act(a, b, movement);
+		free(movement);
+		movement = get_next_line(0);
+	}
+	if (ordered(a, b))
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
+}
 
 void	two_args(t_stack **stack_a, t_stack **stack_b, char *arg)
 {
@@ -29,7 +73,7 @@ void	two_args(t_stack **stack_a, t_stack **stack_b, char *arg)
 	{
 		index = ft_create_index(input, word_num, 0);
 		ft_create_stack(input, word_num, stack_a, index);
-		check();
+		check(stack_a, stack_b);
 		ft_clean_all(stack_a, stack_b);
 		free(index);
 		free(input);
@@ -56,7 +100,7 @@ int	main(int argc, char **argv)
 	{
 		index = ft_create_index(argv, argc, 1);
 		ft_create_stack(++argv, argc - 1, &stack_a, index);
-		check();
+		check(&stack_a, &stack_b);
 		ft_clean_all(&stack_a, &stack_b);
 		free(index);
 	}
