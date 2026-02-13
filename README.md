@@ -34,4 +34,6 @@ The program must display the shortest sequence of instructions needed to sort st
 * 
 
 ## Performance Analysis
-![Performance Graph](performance_graph.png)
+![Performance Graph 1](https://github-production-user-asset-6210df.s3.amazonaws.com/183432713/549674076-32a37a2b-c0a6-4ab6-ae63-2296fb8d2600.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260213%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260213T212349Z&X-Amz-Expires=300&X-Amz-Signature=1a32c7b3b64866ddd6b45290f7071aa688645004145bbfa84c64db4c0f92b2ad&X-Amz-SignedHeaders=host)
+![Performance Graph 2](https://github-production-user-asset-6210df.s3.amazonaws.com/183432713/549674405-b199303d-a5a3-46e5-8944-cb69a2d235d7.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260213%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260213T212408Z&X-Amz-Expires=300&X-Amz-Signature=30fdee756fd0bdb3e404a5bd8c0ead0aebb7d0820c8927bc1dbe9c8e6db09db5&X-Amz-SignedHeaders=host)
+
