@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   gnl_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaqliu <yaqliu@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 20:46:18 by yaqliu            #+#    #+#             */
-/*   Updated: 2025/12/07 17:56:40 by yaqliu           ###   ########.fr       */
+/*   Updated: 2026/02/13 22:33:08 by yaqliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GNL_BONUS_H
+# define GNL_BONUS_H
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1024

@@ -6,7 +6,7 @@
 #    By: yaqliu <yaqliu@student.42barcelona.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/08 23:45:00 by yaqliu            #+#    #+#              #
-#    Updated: 2026/02/11 11:43:20 by yaqliu           ###   ########.fr        #
+#    Updated: 2026/02/13 22:50:25 by yaqliu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRCS_BONUS = checker_bonus.c\
 	gnl_bonus.c\
 	gnl_utils_bonus.c\
 	utils_bonus.c\
+	utils2_bonus.c\
 	movements1_bonus.c\
 	movements2_bonus.c\
 	$(COMMON_SRCS)

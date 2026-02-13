@@ -6,13 +6,13 @@
 /*   By: yaqliu <yaqliu@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 14:45:16 by yaqliu            #+#    #+#             */
-/*   Updated: 2026/02/12 16:05:22 by yaqliu           ###   ########.fr       */
+/*   Updated: 2026/02/13 22:52:11 by yaqliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 
-int		ordered(t_stack **a, t_stack **b)
+int	ordered(t_stack **a, t_stack **b)
 {
 	int		ant;
 	t_stack	*tmp;
@@ -21,7 +21,7 @@ int		ordered(t_stack **a, t_stack **b)
 		return (0);
 	ant = (*a)->r_pos;
 	tmp = (*a)->next;
-	while(tmp)
+	while (tmp)
 	{
 		if (tmp->r_pos < ant)
 			return (0);
@@ -33,26 +33,18 @@ int		ordered(t_stack **a, t_stack **b)
 
 void	ft_act(t_stack **a, t_stack **b, char *str, int *n)
 {
-	if (ft_strcmp(str, "sa\n") == 0)
-		return (sa_checker(a));
-	else if (ft_strcmp(str, "sb\n") == 0)
-		return (sb_checker(b));
-	else if (ft_strcmp(str, "pa\n") == 0)
-		return (pa_checker(a, b));
-	else if (ft_strcmp(str, "pb\n") == 0)
-		return (pb_checker(a, b));
+	if (ft_strcmp(str, "sa\n") == 0 || ft_strcmp(str, "sb\n") == 0)
+		return (checker_swap(a, b, str));
+	else if (ft_strcmp(str, "pa\n") == 0 || ft_strcmp(str, "pb\n") == 0)
+		return (checker_push(a, b, str));
+	else if (ft_strcmp(str, "ra\n") == 0 || ft_strcmp(str, "rb\n") == 0)
+		return (checker_rotate(a, b, str));
+	else if (ft_strcmp(str, "rra\n") == 0 || ft_strcmp(str, "rrb\n") == 0)
+		return (checker_rrotate(a, b, str));
 	else if (ft_strcmp(str, "ss\n") == 0)
 		return (ss_checker(a, b));
-	else if (ft_strcmp(str, "ra\n") == 0)
-		return (ra_checker(a));
-	else if (ft_strcmp(str, "rb\n") == 0)
-		return (rb_checker(b));
 	else if (ft_strcmp(str, "rr\n") == 0)
-		return(rr_checker(a, b));
-	else if (ft_strcmp(str, "rra\n") == 0)
-		return (rra_checker(a));
-	else if (ft_strcmp(str, "rrb\n") == 0)
-		return (rrb_checker(b));
+		return (rr_checker(a, b));
 	else if (ft_strcmp(str, "rrr\n") == 0)
 		return (rrr_checker(a, b));
 	else

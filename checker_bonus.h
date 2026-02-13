@@ -6,7 +6,7 @@
 /*   By: yaqliu <yaqliu@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 14:42:40 by yaqliu            #+#    #+#             */
-/*   Updated: 2026/02/12 16:05:30 by yaqliu           ###   ########.fr       */
+/*   Updated: 2026/02/13 22:49:38 by yaqliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,9 @@ void	pb_checker(t_stack **a, t_stack **b);
 void	ss_checker(t_stack **a, t_stack **b);
 void	rr_checker(t_stack **a, t_stack **b);
 void	rrr_checker(t_stack **a, t_stack **b);
+void	checker_swap(t_stack **a, t_stack **b, char *str);
+void	checker_push(t_stack **a, t_stack **b, char *str);
+void	checker_rotate(t_stack **a, t_stack **b, char *str);
+void	checker_rrotate(t_stack **a, t_stack **b, char *str);
 
 #endif
