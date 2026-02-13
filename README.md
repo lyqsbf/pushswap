@@ -32,3 +32,6 @@ The program must display the shortest sequence of instructions needed to sort st
 ## Resources
 * **AI Usage:**
 * 
+
+## Performance Analysis
+![Performance Graph](performance_graph.png)
