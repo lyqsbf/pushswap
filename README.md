@@ -69,6 +69,8 @@ make
 ```
 The program must display the shortest sequence of instructions needed to sort stack `a` with the smallest number at the top. Instructions must be separated by a `\n` and nothing else. If no parameters are specified, the program must not display anything and should return to the prompt.
 
+---
+
 ### Bonus: The Checker
 
 The project includes a bonus part: a custom `checker` program that validates if a set of instructions actually sorts the stack.
