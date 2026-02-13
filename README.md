@@ -54,4 +54,4 @@ ARG=$(python3 -c "import random; print(' '.join(map(str, random.sample(range(100
 
 ## Resources
 * **AI Usage:**
-* 
+* [Repo with scripts to analyse algorithm's performance](https://github.com/lyqsbf/pushswap_performance_analysis)
