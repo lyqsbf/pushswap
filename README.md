@@ -14,13 +14,18 @@ At the beginning:
 ## Instructions
 
 ### Compilation
-To compile the project, run `make` at the root of the repository. Your Makefile must compile your source files to the required output with the flags `-Wall`, `-Wextra`, and `-Werror`, using `cc`.
+To compile the project, run `make` at the root of the repository. The Makefile will compile the source files to the required output with the flags `-Wall`, `-Wextra`, and `-Werror`, using `cc`.
+```bash
+make
+```
 
 ### Execution
 The program named `push_swap` takes as an argument the stack `a` formatted as a list of integers. The first argument should be at the top of the stack.
 
-Example:
-$> ./push_swap 2 1 3 6 5 8
+```bash
+make
+./push_swap 42 1337 24 1 5
+```
 
 The program must display the shortest sequence of instructions needed to sort stack `a` with the smallest number at the top. Instructions must be separated by a `\n` and nothing else. If no parameters are specified, the program must not display anything and should return to the prompt.
 
