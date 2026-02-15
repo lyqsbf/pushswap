@@ -6,7 +6,7 @@
 #    By: yaqliu <yaqliu@student.42barcelona.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/08 23:45:00 by yaqliu            #+#    #+#              #
-#    Updated: 2026/02/13 22:50:25 by yaqliu           ###   ########.fr        #
+#    Updated: 2026/02/14 18:12:03 by yaqliu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,22 +50,18 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-	@echo "✅ push_swap compilado correctamente!"
 
 bonus: $(OBJS_BONUS)
 	$(CC) $(CFLAGS) $(OBJS_BONUS) -o $(NAME_BONUS)
-	@echo "✅ checker compilado correctamente!"
 
 %.o: %.c $(INC) $(INC_BONUS) Makefile
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJS) $(OBJS_BONUS)
-	@echo "🧹 Objetos eliminados"
 
 fclean: clean
 	$(RM) $(NAME) $(NAME_BONUS)
-	@echo "🗑️ Ejecutable eliminado"
 
 re: fclean all
 

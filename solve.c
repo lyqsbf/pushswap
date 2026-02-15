@@ -6,7 +6,7 @@
 /*   By: yaqliu <yaqliu@student.42barcelona.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 21:09:11 by yaqliu            #+#    #+#             */
-/*   Updated: 2026/02/12 01:25:36 by yaqliu           ###   ########.fr       */
+/*   Updated: 2026/02/14 14:08:09 by yaqliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,16 +74,35 @@ void	small_cases(t_stack **stack_a, t_stack **stack_b, int size)
 		sort_five_elem(stack_a, stack_b);
 }
 
+int	is_sorted(t_stack *s)
+{
+	int	prev;
+
+	prev = s->r_pos;
+	s = s->next;
+	while (s)
+	{
+		if (s->r_pos < prev)
+			return (0);
+		prev = s->r_pos;
+		s = s->next;
+	}
+	return (1);
+}
+
 void	solve(t_stack **stack_a, t_stack **stack_b)
 {
 	int		size;
 
 	size = stack_size(*stack_a);
-	if (size > 1 && size <= 5)
-		small_cases(stack_a, stack_b, size);
-	else if (size > 5)
+	if (!is_sorted(*stack_a))
 	{
-		sort_a(stack_a, stack_b, size);
-		restore_stack_a(stack_a, stack_b);
+		if (size > 1 && size <= 5)
+			small_cases(stack_a, stack_b, size);
+		else if (size > 5)
+		{
+			sort_a(stack_a, stack_b, size);
+			restore_stack_a(stack_a, stack_b);
+		}
 	}
 }
