@@ -51,7 +51,9 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-bonus: $(OBJS_BONUS)
+bonus: $(NAME_BONUS)
+
+$(NAME_BONUS): $(OBJS_BONUS)
 	$(CC) $(CFLAGS) $(OBJS_BONUS) -o $(NAME_BONUS)
 
 %.o: %.c $(INC) $(INC_BONUS) Makefile
