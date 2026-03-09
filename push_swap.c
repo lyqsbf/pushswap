@@ -6,7 +6,7 @@
 /*   By: yaqliu <yaqliu@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 12:32:34 by yaqliu            #+#    #+#             */
-/*   Updated: 2026/02/12 00:54:14 by yaqliu           ###   ########.fr       */
+/*   Updated: 2026/02/14 13:59:56 by yaqliu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	two_args(t_stack **stack_a, t_stack **stack_b, char *arg)
 		solve(stack_a, stack_b);
 		ft_clean_all(stack_a, stack_b);
 		free(index);
-		free(input);
+		free_split(input);
 		return ;
 	}
 	free_split(input);
