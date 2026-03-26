@@ -121,3 +121,23 @@ Here are three ways to test the program using the checker (assuming `checker_lin
 ## Resources
 * **AI Usage:** Used for automation tasks, such as the shell commands used in the bonus testing, and to attempt optimizations in the sorting strategy.
 * [Repo with scripts to analyse algorithm's performance](https://github.com/lyqsbf/pushswap_performance_analysis)
+
+---
+
+## License
+
+This project is protected by copyright. All rights are reserved. 
+
+**You may NOT:**
+- Use this project for commercial purposes
+- Sell, distribute, or profit from this code
+- Republish this as your own work
+
+**You may:**
+- Study and learn from this code
+- Modify it for your own educational use
+- Fork for personal learning purposes
+
+For permission requests or commercial use inquiries, contact the author.
+
+See [LICENSE](LICENSE) file for full terms.
